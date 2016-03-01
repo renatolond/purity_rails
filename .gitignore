@@ -9,5 +9,10 @@
 # vim artifacts
 **.swp
 
+# Ignore application configuration
+/config/application.yml
+
 # bower
 /vendor/assets/bower_components
+
+/db/user_seeds.rb

@@ -1,7 +1,8 @@
 require 'github/markdown'
 
 class TestsController < ApplicationController
-  before_action :set_test, only: [:show, :edit, :update, :destroy]
+  before_action :set_test, only: [:show, :edit, :update, :destroy, :result]
+  before_action :authenticate_user!, only: [:result]
 
   # GET /tests
   def index
@@ -11,6 +12,13 @@ class TestsController < ApplicationController
   # GET /tests/1
   def show
     @description = GitHub::Markdown.render_gfm(@test.description.present? ? @test.description : '').html_safe
+  end
+
+  def result
+    @yes = current_user.questions.joins(:group).where('groups.test_id = ?',@test.id).count
+    @questions = @test.groups.joins(:questions).count
+    @kinky_percent = (@yes) * 100.0 / @questions
+    @pure_percent = (@questions - @yes) * 100.0 / @questions
   end
 
   # GET /tests/new

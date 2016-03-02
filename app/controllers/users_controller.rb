@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if(next_id != nil)
       redirect_to(group_path(id: next_id))
     else
-      redirect_to(test_path(Group.find(update_params[:group_id]).test))
+      redirect_to(result_test_path(Group.find(update_params[:group_id]).test))
     end
   end
 

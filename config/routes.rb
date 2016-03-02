@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   root 'tests#index'
 
   resources :tests, only: [:index, :show]
+  resources :tests do
+    member do
+      get 'result'
+    end
+  end
   resources :groups, only: [:show]
   resources :users do
     member do

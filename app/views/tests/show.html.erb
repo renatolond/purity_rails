@@ -2,6 +2,9 @@
 
 <center><h1><%=@test.name%></h1></center>
 <%=@description%>
+<h3>See your results:</h3>
+<%= link_to 'Your results', result_test_path(@test) %>
+<h3>Choose a session</h3>
 <ol>
     <% @test.groups.each do |g| %>
         <li><%= link_to g.headline, g %></li>

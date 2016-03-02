@@ -11,8 +11,7 @@
     <ol>
     <%= f.collection_check_boxes(:question_ids, @group.questions, :id, :description) do |b| %>
         <li>
-            <%= b.check_box(class: "check_box") %>
-
+            <%= b.check_box(class: "check_box", checked: false) %>
             <%= b.object.description %>
         </li>
     <% end %>

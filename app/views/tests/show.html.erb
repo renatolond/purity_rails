@@ -1,0 +1,7 @@
+<center><h1><%=@test.name%></h1></center>
+<%=@description%>
+<ol>
+    <% @test.groups.each do |g| %>
+        <li><%= link_to g.headline, g %></li>
+    <% end %>
+</ol>

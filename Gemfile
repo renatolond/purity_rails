@@ -8,6 +8,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'therubyracer', platforms: :ruby
 gem 'github-markdown'
+gem 'gretel'
 
 gem 'turbolinks'
 gem 'sdoc', '~> 0.4.0', group: :doc

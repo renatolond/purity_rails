@@ -2,20 +2,31 @@
 
 <h1><%=@group.headline%></h1>
 
-<h3>Check all boxes for which your answer is "yes".<br />
-    The "submit" button is at the bottom.</h3>
+<% if user_signed_in? %>
+    <h3>Check all boxes for which your answer is "yes".<br />
+        The "submit" button is at the bottom.</h3>
 
-<h5>(<%=@group.description%> - <%=@group.questions.count%> questions)</h5>
+    <h5>(<%=@group.description%> - <%=@group.questions.count%> questions)</h5>
 
-<%= form_for @group do |f| %>
-    <ol>
-    <%= f.collection_check_boxes(:question_ids, @group.questions, :id, :description) do |b| %>
-        <li>
-            <%= b.check_box(class: "check_box", checked: false) %>
-            <%= b.object.description %>
-        </li>
+    <%= form_for @group do |f| %>
+        <ol>
+            <%= f.collection_check_boxes(:question_ids, @group.questions, :id, :description) do |b| %>
+                <li>
+                    <%= b.check_box(class: "check_box", checked: false) %>
+                    <%= b.object.description %>
+                </li>
+            <% end %>
+        </ol>
+        <%= f.submit "Submit this group" %>
+        <%= f.submit "Reset to previous values", :type => "reset" %>
     <% end %>
+<% else %>
+    <h3>To be able to answer the tests, you have to <%= link_to "sign in", new_user_session_path %> (or <%= link_to "sign up", new_user_registration_path %>)</h3>
+    <h5>(<%=@group.description%> - <%=@group.questions.count%> questions)</h5>
+
+    <ol>
+        <% @group.questions.each do |q| %>
+            <li><%=q.description%></li>
+        <% end %>
     </ol>
-    <%= f.submit "Submit this group" %>
-    <%= f.submit "Reset to previous values", :type => "reset" %>
-<% end %>
+<% end%>

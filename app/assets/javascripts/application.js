@@ -11,6 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks/vendor/assets/javascripts/jquery.turbolinks
 //= require jquery-ujs
-//= require turbolinks
+//= require bootstrap-sass/assets/javascripts/bootstrap-sprockets
+//= require jquery-readyselector
 //= require_tree .
+//= require turbolinks

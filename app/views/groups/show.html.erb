@@ -8,11 +8,12 @@
 
     <h5>(<%=@group.description%> - <%=@group.questions.count%> questions)</h5>
 
-    <%= form_for @group do |f| %>
+    <%= form_for current_user, url: update_answers_user_path do |f| %>
+        <%= f.hidden_field(:group_id, value: @group.id) %>
         <ol>
-            <%= f.collection_check_boxes(:question_ids, @group.questions, :id, :description) do |b| %>
+            <%= f.collection_check_boxes(:question_ids, @group.questions.includes(:users), :id, :description) do |b| %>
                 <li>
-                    <%= b.check_box(class: "check_box", checked: false) %>
+                    <%= b.check_box(class: "check_box", checked: b.object.user_ids.include?(current_user.id)) %>
                     <%= b.object.description %>
                 </li>
             <% end %>

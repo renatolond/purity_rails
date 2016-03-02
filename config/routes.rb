@@ -10,6 +10,11 @@ Rails.application.routes.draw do
 
   resources :tests, only: [:index, :show]
   resources :groups, only: [:show]
+  resources :users do
+    member do
+      patch 'update_answers'
+    end
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

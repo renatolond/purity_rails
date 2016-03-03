@@ -20,6 +20,8 @@ gem 'devise'
 
 gem 'puma'
 
+gem 'rails_12factor', group: :production
+
 
 group :development, :test do
   gem 'byebug'
@@ -31,3 +33,4 @@ group :development do
   gem 'spring'
 end
 
+ruby "2.2.3"

@@ -19,7 +19,4 @@ if Rails.env.production?
     :domain         => 'heroku.com',
     :enable_starttls_auto => true
   }
-  Rails.application.config.action_mailer do |action_mailer|
-    action_mailer.default_url_options = { :host => 'purityjkr.herokuapp.com' }
-  end
 end

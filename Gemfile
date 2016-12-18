@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
+ruby "2.3.1"
+gem 'rails', '4.2.7.1'
 
-
-gem 'rails', '4.2.5'
-gem 'pg', '~> 0.15'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -18,6 +17,7 @@ gem 'devise'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'pg'
 gem 'puma'
 
 gem 'rails_12factor', group: :production
@@ -32,5 +32,3 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
-
-ruby "2.2.3"

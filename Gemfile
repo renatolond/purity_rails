@@ -1,23 +1,20 @@
 source 'https://rubygems.org'
-ruby "2.3.1"
-gem 'rails', '4.2.7.1'
+ruby "2.3.7"
+gem 'rails', '~> 4.2'
 
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'therubyracer', platforms: :ruby
 gem 'github-markdown'
 gem 'gretel'
 gem 'active_link_to'
 
 gem 'turbolinks'
-gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'devise'
+gem 'sdoc', group: :doc
+gem 'devise', '< 4.0'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-gem 'pg'
+gem 'pg', '< 1.0'
 gem 'puma'
 
 gem 'rails_12factor', group: :production
@@ -29,6 +26,6 @@ end
 
 group :development do
   gem 'better_errors'
-  gem 'web-console', '~> 2.0'
+  gem 'web-console'
   gem 'spring'
 end

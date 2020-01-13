@@ -12,7 +12,7 @@ gem 'active_link_to'
 
 gem 'turbolinks'
 gem 'sdoc', group: :doc
-gem 'devise', '< 4.0'
+gem 'devise', '< 5.0'
 
 gem 'pg', '< 1.0'
 gem 'puma'
